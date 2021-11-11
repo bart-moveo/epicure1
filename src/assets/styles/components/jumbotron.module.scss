@@ -1,0 +1,30 @@
+.jumbotron {
+  width: 100vw;
+  height: 80vh;
+  background-color: blue;
+  justify-content: center;
+
+  background: -webkit-image-set(
+    url("../../images/hero/hero-picture.png") 1x,
+    url("../../images/hero/hero-picture@2x.png") 2x
+  );
+
+  //   background-image: url("../../images/hero/hero-picture.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  .inside-box {
+    background-color: rgba(255, 255, 255, 0.88);
+    align-self: center;
+    padding: 2.5rem 8.5rem 2.5rem 8.5rem;
+    max-width: 48rem;
+    width: 100%;
+    text-align: center;
+
+    span {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@import "../setup/mixins.scss";
+.footer {
+  text-align: left;
+  display: block;
+
+  .footer-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0 3rem 0;
+
+    .footer-main {
+      display: flex;
+      align-items: center;
+
+      .about-left {
+        flex-grow: 1.5;
+        flex-basis: 0;
+
+        h2 {
+          font-weight: 100;
+          letter-spacing: 0.15rem;
+          margin-block-start: 0;
+          margin-block-end: 2.5rem;
+        }
+
+        p {
+          letter-spacing: 0.1rem;
+          font-size: 1.25rem;
+        }
+
+        .app-buttons-container {
+          display: flex;
+          column-gap: 1rem;
+
+          .app-button {
+            border: solid 0.6px black;
+            border-radius: 0.75rem;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+            text-align: center;
+            letter-spacing: 0.05rem;
+
+            .text-sm {
+              font-size: 0.75rem;
+              font-weight: 400;
+            }
+
+            .text-lg {
+              font-size: 1rem;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+
+      .about-right {
+        flex-grow: 1;
+        flex-basis: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        img {
+          width: 11rem;
+        }
+      }
+    }
+  }
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  column-gap: 4rem;
+
+  a {
+    @include reset-link-style;
+  }
+}
