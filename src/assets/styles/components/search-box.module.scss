@@ -1,4 +1,5 @@
 @import "../setup/mixins.scss";
+@import "../setup/responsivity.scss";
 
 .search-form {
   border: 0.5px solid;
@@ -7,6 +8,7 @@
   width: 100%;
   max-width: 20rem;
   min-width: 15rem;
+  display: none;
 
   input {
     box-sizing: border-box;
@@ -14,6 +16,7 @@
     font-size: 1rem;
     font-weight: 100;
     flex-grow: 10;
+    min-width: 0;
 
     @include reset-input-style;
 
@@ -27,5 +30,14 @@
 .search-form-lg {
   @extend .search-form;
   padding: 0.5rem 1rem 0.5rem 1rem;
+  min-width: 0;
   max-width: none;
+  display: flex;
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, md)) {
+  /***** MD and UP ****/
+  .search-form {
+    display: flex;
+  }
 }
