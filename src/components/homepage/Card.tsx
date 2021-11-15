@@ -1,6 +1,5 @@
 import { card } from "../../interfaces/index.interface";
 import styles from "../../assets/styles/components/card.module.scss";
-import png from "../../assets/images/cards/claro/claro.png";
 import spicyIcon from "../../assets/images/icons/spicy-icon.svg";
 import veganIcon from "../../assets/images/icons/vegan-icon.svg";
 import vegetarianIcon from "../../assets/images/icons/vegetarian-icon.svg";
