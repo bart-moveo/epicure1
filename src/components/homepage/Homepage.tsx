@@ -30,6 +30,24 @@ const DUMMY_GALLERY_1: gallery = {
       content: "Yanir Green",
       link: "#",
     },
+    {
+      image: "claro/claro@3x.png",
+      title: "Claro",
+      content: "Ran Shmueli",
+      link: "#",
+    },
+    {
+      image: "lumina/lumina@3x.png",
+      title: "Lumina",
+      content: "Meir Adoni",
+      link: "#",
+    },
+    {
+      image: "tiger-lili/tiger-lili@3x.png",
+      title: "Tiger Lilly",
+      content: "Yanir Green",
+      link: "#",
+    },
   ],
 };
 
@@ -37,6 +55,34 @@ const DUMMY_GALLERY_2: gallery = {
   size: "lg",
   seeMoreLink: "#",
   cards: [
+    {
+      image: "pad-ki-mao/pad-ki-mao@3x.png",
+      title: "Pad Ki Mao",
+      content:
+        "Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic Chili Brown Coconut",
+      link: "#",
+      price: 88,
+      aboveTitle: "Tiger Lilly",
+      icon: "spicy",
+    },
+    {
+      image: "garbanzo-frito/garbanzo-frito@3x.png",
+      title: "Garbanzo Frito",
+      content:
+        "Polenta fingers, veal cheek,magic chili cured lemon cream, yellow laksa",
+      link: "#",
+      price: 98,
+      aboveTitle: "Kab Kem",
+    },
+    {
+      image: "smoked-pizza/smoked-pizza@3x.png",
+      title: "Smoked Pizza",
+      content: `Basil dough, cashew "butter", demi-glace, bison & radish`,
+      link: "#",
+      price: 65,
+      aboveTitle: "Popina",
+      icon: "vegan",
+    },
     {
       image: "pad-ki-mao/pad-ki-mao@3x.png",
       title: "Pad Ki Mao",
@@ -87,6 +133,21 @@ const DUMMY_GALLERY_3: gallery = {
       title: "Mashya",
       link: "#",
     },
+    {
+      image: "onza/onza@3x.png",
+      title: "Onza",
+      link: "#",
+    },
+    {
+      image: "kitchen-market/kitchen-market@3x.png",
+      title: "Kitchen Market",
+      link: "#",
+    },
+    {
+      image: "mashya/mashya@3x.png",
+      title: "Mashya",
+      link: "#",
+    },
   ],
 };
 
@@ -97,6 +158,12 @@ const Homepage = () => {
   return (
     <>
       <Jumbotron />
+      <HomeSection background="grey">
+        <div className={styles["buttons-container"]}>
+          <div className="back-sand">CHEFS</div>
+          <div className="back-sand">RESTAURANTS</div>
+        </div>
+      </HomeSection>
       <HomeSection title="THE POPULAR RESTAURANTS IN EPICURE :">
         <Gallery gallery={DUMMY_GALLERY_1} />
       </HomeSection>
@@ -119,6 +186,7 @@ const Homepage = () => {
           </div>
         </div>
       </HomeSection>
+
       <HomeSection title="CHEF OF THE WEEK :">
         <div className={styles["week-chef"]}>
           <div className={styles["chef-info"]}>

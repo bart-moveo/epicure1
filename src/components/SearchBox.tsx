@@ -7,8 +7,6 @@ type props = {
 };
 
 const SearchBox = ({ size = "sm", direction = "normal" }: props) => {
-  console.log(size, direction);
-
   return (
     <form
       className={

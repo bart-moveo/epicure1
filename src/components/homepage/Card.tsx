@@ -11,7 +11,6 @@ type props = {
 };
 
 const Card = ({ card, size = "md" }: props) => {
-  console.log(card);
   let imageFileName: string = "";
   if (card.image) imageFileName = card.image;
   let imagePath: string = "";
@@ -19,10 +18,11 @@ const Card = ({ card, size = "md" }: props) => {
     imagePath = require("../../assets/images/cards/".concat(
       imageFileName
     )).default;
-  console.log(imagePath);
+
+  let backClass = size === "sm" ? "back-beige" : "back-peach";
 
   return (
-    <div className={styles.card}>
+    <div className={size === "sm" ? styles["card-sm"] : styles.card}>
       {card.aboveTitle && (
         <div className={styles["above-title"]}>
           <h4>{card.aboveTitle}</h4>
@@ -30,18 +30,16 @@ const Card = ({ card, size = "md" }: props) => {
       )}
 
       {card.image && (
-        <a href="#">
-          <div
-            className={
-              styles.img + " " + (size === "lg" ? styles.lg : styles["sm-md"])
-            }
-            style={{
-              backgroundImage: "url(" + imagePath + ")",
-            }}
-          ></div>
-        </a>
+        <div
+          className={
+            styles.img + " " + (size === "lg" ? styles.lg : styles["sm-md"])
+          }
+          style={{
+            backgroundImage: "url(" + imagePath + ")",
+          }}
+        ></div>
       )}
-      <a href="#" className={styles["content-wrapper"]}>
+      <div className={styles["content-wrapper"] + " " + backClass}>
         {card.title && <h4>{card.title}</h4>}
         {card.content && <p>{card.content}</p>}
         {card.icon === "spicy" && (
@@ -73,7 +71,7 @@ const Card = ({ card, size = "md" }: props) => {
             <hr />
           </div>
         )}
-      </a>
+      </div>
     </div>
   );
 };

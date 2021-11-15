@@ -1,11 +1,15 @@
 @import "../setup/mixins.scss";
+@import "../setup/responsivity.scss";
 
 .card {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  flex-basis: 0;
-  min-width: 0;
+  // flex-grow: 1;
+  // flex-basis: 0;
+  // min-width: 0;
+  flex: 1 0 calc(33.3333% - 0.5rem); /* explanation below */
+  min-width: 14rem;
+  overflow-x: hidden;
 
   .above-title {
     h4 {
@@ -19,7 +23,7 @@
 
   .content-wrapper {
     padding: 1rem 2rem 1rem 2rem;
-    background-color: #f9f4ea;
+    //background-color: #f9f4ea;
     flex-grow: 1;
     flex-basis: 0;
     display: flex;
@@ -83,15 +87,25 @@
 
   .img.sm-md {
     height: 14rem;
-    background-color: dimgray;
   }
 
   .img.lg {
     height: 18.125rem;
-    background-color: dimgray;
   }
 
   * {
     @include reset-link-style;
+  }
+}
+
+.card-sm {
+  @extend .card;
+  max-width: 5rem;
+}
+
+@media screen and (min-width: map-get($grid-breakpoints, md)) {
+  /***** MD and UP ****/
+  .card {
+    scroll-snap-align: start;
   }
 }

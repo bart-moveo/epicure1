@@ -14,8 +14,8 @@ nav {
   @include reset-button-style;
 
   .nav-icon {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
     margin-left: 0.5rem;
   }
 
@@ -74,6 +74,11 @@ nav {
   /***** MD and UP ****/
 
   nav {
+    .nav-icon {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+
     .nav-list {
       display: flex;
     }

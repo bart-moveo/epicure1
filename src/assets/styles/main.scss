@@ -3,6 +3,7 @@
 @import "./setup/helpers.scss";
 @import "./setup/flex-helpers.scss";
 @import "./setup/mixins.scss";
+@import "./setup/transitions.scss";
 
 body {
   margin: 0;
@@ -10,6 +11,7 @@ body {
   font-weight: 100;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 * {
@@ -23,7 +25,7 @@ code {
 
 .container {
   width: 100%;
-  padding: 0 2em 0 2rem;
+  padding: 0 1.5em 0 1.5rem;
 
   @include md {
     max-width: map-get($container-max-widths, md);
