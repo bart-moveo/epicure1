@@ -15,12 +15,6 @@ const Jumbotron = () => {
       <CSSTransition
         in={inProp}
         timeout={500}
-        // classNames={{
-        //   enterActive: styles["inside-box-transition-enter"],
-        //   enterDone: styles["inside-box-transition-enter-active"],
-        //   exitActive: styles["inside-box-transition-exit"],
-        //   exitDone: styles["inside-box-transition-exit-active"],
-        // }}
         classNames={"transition-1"}
         unmountOnExit
       >

@@ -1,14 +1,5 @@
-import React, {
-  Children,
-  ReactChild,
-  ReactChildren,
-  useEffect,
-  useState,
-} from "react";
+import React, { ReactChild, ReactChildren } from "react";
 import styles from "../../assets/styles/components/home-section.module.scss";
-import { Waypoint } from "react-waypoint";
-import { CSSTransition } from "react-transition-group";
-import { wait } from "@testing-library/dom";
 
 type props = {
   title?: string;
@@ -17,21 +8,8 @@ type props = {
 };
 
 const HomeSection = ({ title, background = "none", children }: props) => {
-  const [inProp, setInProp] = useState(false);
-
-  const onEnter = () => {
-    setInProp(true);
-  };
-
+  console.log("hello");
   return (
-    // <React.Fragment>
-    //   <Waypoint onEnter={onEnter} />
-    //   <CSSTransition
-    //     in={inProp}
-    //     timeout={500}
-    //     classNames={"transition-1"}
-    //     unmountOnExit
-    //   >
     <section
       className={
         styles["home-section"] +
@@ -45,8 +23,6 @@ const HomeSection = ({ title, background = "none", children }: props) => {
         {children}
       </div>
     </section>
-    //   </CSSTransition>
-    // </React.Fragment>
   );
 };
 

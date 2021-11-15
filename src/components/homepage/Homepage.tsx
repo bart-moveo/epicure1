@@ -173,15 +173,15 @@ const Homepage = () => {
       <HomeSection title="THE MEANING OF OUR ICONS :" background="grey">
         <div className={styles["icons-container"]}>
           <div>
-            <img src={spicyIcon} />
+            <img src={spicyIcon} alt="spicy" />
             <span>Spicy</span>
           </div>
           <div>
-            <img src={vegetarianIcon} />
+            <img src={vegetarianIcon} alt="vegetarian" />
             <span>Vegetarian</span>
           </div>
           <div>
-            <img src={veganIcon} />
+            <img src={veganIcon} alt="vegan" />
             <span>Vegan</span>
           </div>
         </div>

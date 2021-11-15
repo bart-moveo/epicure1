@@ -27,14 +27,18 @@ const Footer = ({ children }: props) => {
             <h2>ABOUT US :</h2>
             <p>{footerTextP1}</p>
             <p>{footerTextP2}</p>
-            <img src={aboutLogo} className={styles["mobile-only-logo"]} />
+            <img
+              src={aboutLogo}
+              className={styles["mobile-only-logo"]}
+              alt="logo"
+            />
             <div className={styles["app-buttons-container"]}>
               <AppButton type="apple" />
               <AppButton type="android" />
             </div>
           </div>
           <div className={styles["about-right"]}>
-            <img src={aboutLogo} />
+            <img src={aboutLogo} alt="logo" />
           </div>
         </div>
       </div>
@@ -59,7 +63,7 @@ const AppButton = ({ type }: buttonProps) => {
   return (
     <div className={styles["app-button"]}>
       <div className={styles["os-icon"]}>
-        <img src={type === "apple" ? appleIcon : playIcon} />
+        <img src={type === "apple" ? appleIcon : playIcon} alt="os icon" />
       </div>
       <div className="d-flex flex-column">
         <span className={styles["text-sm"]}>{text1}</span>
