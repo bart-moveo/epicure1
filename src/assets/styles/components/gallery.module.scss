@@ -19,7 +19,6 @@
 
   .cards-container-small {
     @extend .cards-container;
-    //max-width: 40rem;
   }
 
   .see-more {
@@ -43,7 +42,6 @@
 
   .gallery {
     width: 100vw;
-    //padding-right: 2rem;
     margin-left: -1.5rem;
 
     .see-more {
