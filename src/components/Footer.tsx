@@ -4,9 +4,6 @@ import appleIcon from "../assets/images/icons/apple-icon.svg";
 import playIcon from "../assets/images/icons/play-icon.svg";
 import aboutLogo from "../assets/images/brand-icon/about-logo@3x.png";
 
-// import Aos from "aos";
-// import "aos/dist/aos.css";
-
 type props = {
   children?: ReactChild | ReactChildren;
 };
@@ -17,8 +14,6 @@ const footerTextP2 =
   "Ex velit consectetur duis voluptate aliqua nisi dolor reprehenderit reprehenderit nostrud fugiat. Dolore veniam voluptate aliqua esse exercitation magna in veniam elit voluptate voluptate incididunt cupidatat.";
 
 const Footer = ({ children }: props) => {
-  // Aos.init();
-
   return (
     <section className={styles.footer} data-aos="fade-in">
       <div className={"back-grey " + styles["footer-wrapper"]}>

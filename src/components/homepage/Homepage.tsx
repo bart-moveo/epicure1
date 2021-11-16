@@ -11,6 +11,7 @@ import Footer from "../Footer";
 const DUMMY_GALLERY_1: gallery = {
   size: "md",
   seeMoreLink: "#",
+  seeMoreText: "All Restaurants",
   cards: [
     {
       image: "claro/claro@3x.png",

@@ -11,5 +11,6 @@ export interface card {
 export interface gallery {
   size?: string;
   seeMoreLink?: string;
+  seeMoreText?: string;
   cards: card[];
 }

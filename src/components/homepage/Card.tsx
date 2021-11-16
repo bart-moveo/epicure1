@@ -19,9 +19,18 @@ const Card = ({ card, size = "md" }: props) => {
     )).default;
 
   let backClass = size === "sm" ? "back-beige" : "back-peach";
+  let widthClass = "width-1";
+  if (size === "md") widthClass = "width-2";
+  if (size === "lg") widthClass = "width-3";
 
   return (
-    <div className={size === "sm" ? styles["card-sm"] : styles.card}>
+    <div
+      className={
+        (size === "sm" ? styles["card-sm"] : styles.card) +
+        " " +
+        styles[widthClass]
+      }
+    >
       {card.aboveTitle && (
         <div className={styles["above-title"]}>
           <h4>{card.aboveTitle}</h4>

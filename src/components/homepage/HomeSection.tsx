@@ -8,7 +8,6 @@ type props = {
 };
 
 const HomeSection = ({ title, background = "none", children }: props) => {
-  console.log("hello");
   return (
     <section
       className={

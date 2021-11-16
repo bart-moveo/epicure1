@@ -8,7 +8,7 @@
   .footer-wrapper {
     display: flex;
     justify-content: center;
-    padding: 3rem 0 3rem 0;
+    padding: 2.5rem 0 2.5rem 0;
 
     .footer-main {
       display: flex;
@@ -54,25 +54,25 @@
             padding: 0.5rem 0.75rem 0.5rem 0.75rem;
             display: flex;
             align-items: center;
-            column-gap: 1rem;
+            column-gap: 0.5rem;
             text-align: center;
             letter-spacing: 0.05rem;
             //min-width: 10.5rem;
 
             .os-icon {
-              height: 2rem;
+              height: 1.5rem;
               img {
                 height: 100%;
               }
             }
 
             .text-sm {
-              font-size: 0.75rem;
+              font-size: 0.5rem;
               font-weight: 400;
             }
 
             .text-lg {
-              font-size: 1rem;
+              font-size: 0.75rem;
               font-weight: 400;
             }
           }
@@ -133,6 +133,14 @@
             .app-button {
               padding: 0.5rem 1rem 0.5rem 1rem;
               column-gap: 1rem;
+
+              .text-sm {
+                font-size: 0.75rem;
+              }
+
+              .text-lg {
+                font-size: 1rem;
+              }
             }
           }
         }
