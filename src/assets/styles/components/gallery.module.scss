@@ -21,6 +21,21 @@
     @extend .cards-container;
     //max-width: 40rem;
   }
+
+  .see-more {
+    text-align: end;
+    display: flex;
+    padding-top: 1rem;
+    @include reset-link-style;
+    font-size: 1.25rem;
+    font-weight: 400;
+    justify-content: end;
+    align-items: center;
+
+    img {
+      margin-left: 1rem;
+    }
+  }
 }
 
 @media screen and (max-width: map-get($grid-breakpoints, md)) {
@@ -30,6 +45,10 @@
     width: 100vw;
     //padding-right: 2rem;
     margin-left: -1.5rem;
+
+    .see-more {
+      display: none;
+    }
   }
 
   .cards-container {

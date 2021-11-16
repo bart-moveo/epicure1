@@ -3,6 +3,7 @@ import { gallery } from "../../interfaces/index.interface";
 import Card from "./Card";
 import { useRef } from "react";
 import useDraggableScroll from "use-draggable-scroll";
+import arrows from "../../assets/images/icons/all-restaurants-arrows.svg";
 
 type props = {
   gallery: gallery;
@@ -28,6 +29,12 @@ const Gallery = ({ gallery }: props) => {
           <Card card={item} size={gallery.size} />
         ))}
       </div>
+      {gallery.seeMoreLink && gallery.seeMoreText && (
+        <a href={gallery.seeMoreLink} className={styles["see-more"]}>
+          <span>{gallery.seeMoreText}</span>
+          <img src={arrows} />
+        </a>
+      )}
     </div>
   );
 };
