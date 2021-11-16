@@ -7,7 +7,6 @@ const Jumbotron = () => {
 
   useEffect(() => {
     setTimeout(() => setInProp(true), 250);
-    // setInProp(true);
   }, []);
 
   return (
