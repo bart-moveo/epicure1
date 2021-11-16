@@ -32,7 +32,7 @@ const Gallery = ({ gallery }: props) => {
       {gallery.seeMoreLink && gallery.seeMoreText && (
         <a href={gallery.seeMoreLink} className={styles["see-more"]}>
           <span>{gallery.seeMoreText}</span>
-          <img src={arrows} />
+          <img src={arrows} alt="arrow" />
         </a>
       )}
     </div>
