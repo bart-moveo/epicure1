@@ -1,4 +1,9 @@
-import { gallery } from "../../interfaces/index.interface";
+import {
+  chef,
+  dish,
+  gallery,
+  restaurant,
+} from "../../interfaces/index.interface";
 import Gallery from "./Gallery";
 import HomeSection from "./HomeSection";
 import Jumbotron from "./Jumbotron";
@@ -7,155 +12,85 @@ import spicyIcon from "../../assets/images/icons/spicy-icon.svg";
 import veganIcon from "../../assets/images/icons/vegan-icon.svg";
 import vegetarianIcon from "../../assets/images/icons/vegetarian-icon.svg";
 import Footer from "../Footer";
+import { useEffect, useState } from "react";
 
-const DUMMY_GALLERY_1: gallery = {
-  size: "md",
-  seeMoreLink: "#",
-  seeMoreText: "All Restaurants",
-  cards: [
-    {
-      image: "claro/claro@3x.png",
-      title: "Claro",
-      content: "Ran Shmueli",
-      link: "#",
-    },
-    {
-      image: "lumina/lumina@3x.png",
-      title: "Lumina",
-      content: "Meir Adoni",
-      link: "#",
-    },
-    {
-      image: "tiger-lili/tiger-lili@3x.png",
-      title: "Tiger Lilly",
-      content: "Yanir Green",
-      link: "#",
-    },
-    {
-      image: "claro/claro@3x.png",
-      title: "Claro",
-      content: "Ran Shmueli",
-      link: "#",
-    },
-    {
-      image: "lumina/lumina@3x.png",
-      title: "Lumina",
-      content: "Meir Adoni",
-      link: "#",
-    },
-    {
-      image: "tiger-lili/tiger-lili@3x.png",
-      title: "Tiger Lilly",
-      content: "Yanir Green",
-      link: "#",
-    },
-  ],
-};
-
-const DUMMY_GALLERY_2: gallery = {
-  size: "lg",
-  seeMoreLink: "#",
-  cards: [
-    {
-      image: "pad-ki-mao/pad-ki-mao@3x.png",
-      title: "Pad Ki Mao",
-      content:
-        "Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic Chili Brown Coconut",
-      link: "#",
-      price: 88,
-      aboveTitle: "Tiger Lilly",
-      icon: "spicy",
-    },
-    {
-      image: "garbanzo-frito/garbanzo-frito@3x.png",
-      title: "Garbanzo Frito",
-      content:
-        "Polenta fingers, veal cheek,magic chili cured lemon cream, yellow laksa",
-      link: "#",
-      price: 98,
-      aboveTitle: "Kab Kem",
-    },
-    {
-      image: "smoked-pizza/smoked-pizza@3x.png",
-      title: "Smoked Pizza",
-      content: `Basil dough, cashew "butter", demi-glace, bison & radish`,
-      link: "#",
-      price: 65,
-      aboveTitle: "Popina",
-      icon: "vegan",
-    },
-    {
-      image: "pad-ki-mao/pad-ki-mao@3x.png",
-      title: "Pad Ki Mao",
-      content:
-        "Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic Chili Brown Coconut",
-      link: "#",
-      price: 88,
-      aboveTitle: "Tiger Lilly",
-      icon: "spicy",
-    },
-    {
-      image: "garbanzo-frito/garbanzo-frito@3x.png",
-      title: "Garbanzo Frito",
-      content:
-        "Polenta fingers, veal cheek,magic chili cured lemon cream, yellow laksa",
-      link: "#",
-      price: 98,
-      aboveTitle: "Kab Kem",
-    },
-    {
-      image: "smoked-pizza/smoked-pizza@3x.png",
-      title: "Smoked Pizza",
-      content: `Basil dough, cashew "butter", demi-glace, bison & radish`,
-      link: "#",
-      price: 65,
-      aboveTitle: "Popina",
-      icon: "vegan",
-    },
-  ],
-};
-
-const DUMMY_GALLERY_3: gallery = {
-  size: "sm",
-  seeMoreLink: "#",
-  cards: [
-    {
-      image: "onza/onza@3x.png",
-      title: "Onza",
-      link: "#",
-    },
-    {
-      image: "kitchen-market/kitchen-market@3x.png",
-      title: "Kitchen Market",
-      link: "#",
-    },
-    {
-      image: "mashya/mashya@3x.png",
-      title: "Mashya",
-      link: "#",
-    },
-    {
-      image: "onza/onza@3x.png",
-      title: "Onza",
-      link: "#",
-    },
-    {
-      image: "kitchen-market/kitchen-market@3x.png",
-      title: "Kitchen Market",
-      link: "#",
-    },
-    {
-      image: "mashya/mashya@3x.png",
-      title: "Mashya",
-      link: "#",
-    },
-  ],
-};
-
-const yossiText =
-  "Chef Yossi Shitrit has been living and breathing his culinary dreams for more than two decades, including running the kitchen in his first restaurant, the fondly-remembered Violet, located in Moshav  Udim. Shitrit's creativity and culinary  acumen born of long experience  are expressed in the every detail of each and every dish.";
+const URI = "http://localhost:3002";
 
 const Homepage = () => {
+  const [popularRestaurants, setPopularRestaurants] = useState<any>([]);
+  const [signatureDishes, setSignatureDishes] = useState<any>([]);
+  const [chefOfTheWeekRestaurants, setChefOfTheWeekRestaurants] = useState<any>(
+    []
+  );
+  const [chefOfTheWeek, setChefOfTheWeek] = useState<any>([]);
+
+  console.log(chefOfTheWeek);
+
+  //const [dishes];
+
+  const restaurantsToGallery1 = (restaurants: restaurant[]): gallery => {
+    const gallery1: gallery = { size: "md", seeMoreLink: "#", cards: [] };
+    gallery1.cards = restaurants.map((item) => {
+      return {
+        image: item.image,
+        title: item.name,
+        content: item.chef.name.fName + " " + item.chef.name.lName,
+        link: "#",
+      };
+    });
+    return gallery1;
+  };
+
+  const dishesToGallery2 = (dishes: dish[]): gallery => {
+    const gallery2: gallery = { size: "lg", seeMoreLink: "#", cards: [] };
+    gallery2.cards = dishes.map((item) => {
+      return {
+        image: item.image,
+        title: item.name,
+        content: item.ingredients.join(", "),
+        link: "#",
+        price: item.price,
+        icon: item.tags,
+        aboveTitle: item.restaurant.name,
+      };
+    });
+    return gallery2;
+  };
+
+  const restaurantsToGallery3 = (restaurants: restaurant[]): gallery => {
+    const gallery3: gallery = { size: "sm", cards: [] };
+    gallery3.cards = restaurants.map((item) => {
+      return {
+        image: item.image,
+        title: item.name,
+        link: "#",
+      };
+    });
+    return gallery3;
+  };
+
+  useEffect(() => {
+    loadData("restaurants?is-popular=true", setPopularRestaurants);
+    loadData("dishes?is-signature=true", setSignatureDishes);
+    loadData("chefs?of-the-week=true", chefOfTheWeekHandler);
+  }, []);
+
+  const loadData = async (path: string, setFunc: any) => {
+    try {
+      fetch(`${URI}/${path}`, {})
+        .then((response) => response.json())
+        .then((data) => setFunc(data));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const chefOfTheWeekHandler = (data: any) => {
+    console.log(data[0]);
+    setChefOfTheWeek(data[0]);
+    loadData("restaurants?chef=" + data[0]._id, setChefOfTheWeekRestaurants);
+  };
+
   return (
     <>
       <Jumbotron />
@@ -166,10 +101,10 @@ const Homepage = () => {
         </div>
       </HomeSection>
       <HomeSection title="THE POPULAR RESTAURANTS IN EPICURE :">
-        <Gallery gallery={DUMMY_GALLERY_1} />
+        <Gallery gallery={restaurantsToGallery1(popularRestaurants)} />
       </HomeSection>
       <HomeSection title="SIGNATURE DISH OF :">
-        <Gallery gallery={DUMMY_GALLERY_2} />
+        <Gallery gallery={dishesToGallery2(signatureDishes)} />
       </HomeSection>
       <HomeSection title="THE MEANING OF OUR ICONS :" background="grey">
         <div className={styles["icons-container"]}>
@@ -193,14 +128,20 @@ const Homepage = () => {
           <div className={styles["chef-info"]}>
             <div className={styles["chef-card"]}>
               <div>
-                <h3>Yossi Shitrit</h3>
+                <h3>
+                  {chefOfTheWeek.name?.fName + " " + chefOfTheWeek.name?.lName}
+                </h3>
               </div>
             </div>
-            <div className={styles["chef-text"]}>{yossiText}</div>
+            <div className={styles["chef-text"]}>
+              {chefOfTheWeek.description}
+            </div>
           </div>
           <div className={styles["chef-restaurants"]}>
-            <h3>Yossi's restaurants :</h3>
-            <Gallery gallery={DUMMY_GALLERY_3} />
+            <h3>{chefOfTheWeek.name?.fName}'s restaurants :</h3>
+            <Gallery
+              gallery={restaurantsToGallery3(chefOfTheWeekRestaurants)}
+            />
           </div>
         </div>
       </HomeSection>

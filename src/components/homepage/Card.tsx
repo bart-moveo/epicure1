@@ -14,10 +14,7 @@ const Card = ({ card, size = "md" }: props) => {
   if (card.image) imageFileName = card.image;
   let imagePath: string = "";
   if (card.image)
-    imagePath = require("../../assets/images/cards/".concat(
-      imageFileName
-    )).default;
-
+    imagePath = require("../../assets/images/".concat(imageFileName)).default;
   let backClass = size === "sm" ? "back-beige" : "back-peach";
   let widthClass = "width-1";
   if (size === "md") widthClass = "width-2";
@@ -50,17 +47,17 @@ const Card = ({ card, size = "md" }: props) => {
       <div className={styles["content-wrapper"] + " " + backClass}>
         {card.title && <h4>{card.title}</h4>}
         {card.content && <p>{card.content}</p>}
-        {card.icon === "spicy" && (
+        {card.icon?.spicy && (
           <div className={styles["icon-wrapper"]}>
             <img src={spicyIcon} className={styles.icon} alt="spicy" />
           </div>
         )}
-        {card.icon === "vegan" && (
+        {card.icon?.vegan && (
           <div className={styles["icon-wrapper"]}>
             <img src={veganIcon} className={styles.icon} alt="vegan" />
           </div>
         )}
-        {card.icon === "vegetarian" && (
+        {card.icon?.vegetarian && (
           <div className={styles["icon-wrapper"]}>
             <img
               src={vegetarianIcon}
