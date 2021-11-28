@@ -29,7 +29,12 @@ const Homepage = () => {
   //const [dishes];
 
   const restaurantsToGallery1 = (restaurants: restaurant[]): gallery => {
-    const gallery1: gallery = { size: "md", seeMoreLink: "#", cards: [] };
+    const gallery1: gallery = {
+      size: "md",
+      seeMoreLink: "#",
+      seeMoreText: "All Restaurants",
+      cards: [],
+    };
     gallery1.cards = restaurants.map((item) => {
       return {
         image: item.image,
