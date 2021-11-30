@@ -13,8 +13,7 @@ const Card = ({ card, size = "md" }: props) => {
   let imageFileName: string = "";
   if (card.image) imageFileName = card.image;
   let imagePath: string = "";
-  if (card.image)
-    imagePath = require("../../assets/images/".concat(imageFileName)).default;
+  if (card.image) imagePath = card.image;
   let backClass = size === "sm" ? "back-beige" : "back-peach";
   let widthClass = "width-1";
   if (size === "md") widthClass = "width-2";

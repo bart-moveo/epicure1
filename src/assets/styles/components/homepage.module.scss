@@ -44,14 +44,14 @@
       background-color: black;
       height: 60vw;
       min-height: 16.5rem;
-      background-image: -webkit-image-set(
-        url("../../images/yossi/yossi.png") 1x,
-        url("../../images/yossi/yossi@2x.png") 2x,
-        url("../../images/yossi/yossi@3x.png") 3x
-      );
+      // background-image: -webkit-image-set(
+      //   url("../../images/yossi/yossi.png") 1x,
+      //   url("../../images/yossi/yossi@2x.png") 2x,
+      //   url("../../images/yossi/yossi@3x.png") 3x
+      // );
       background-repeat: no-repeat;
-      background-size: contain;
-      background-position: bottom;
+      background-size: cover;
+      background-position: top center;
 
       display: flex;
       flex-direction: column;

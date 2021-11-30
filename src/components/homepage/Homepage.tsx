@@ -23,8 +23,7 @@ const Homepage = () => {
     []
   );
   const [chefOfTheWeek, setChefOfTheWeek] = useState<any>([]);
-
-  console.log(chefOfTheWeek);
+  const [chefImage, setChefImage] = useState<any>();
 
   //const [dishes];
 
@@ -82,17 +81,21 @@ const Homepage = () => {
 
   const loadData = async (path: string, setFunc: any) => {
     try {
-      fetch(`${URI}/${path}`, {})
+      fetch(`${URI}/${path}`)
         .then((response) => response.json())
-        .then((data) => setFunc(data));
+        .then((data) => setFunc(data))
+        .catch((err) => {
+          console.error(err);
+          return [];
+        });
     } catch (err) {
       console.error(err);
     }
   };
 
   const chefOfTheWeekHandler = (data: any) => {
-    console.log(data[0]);
     setChefOfTheWeek(data[0]);
+    console.log(data[0].image);
     loadData("restaurants?chef=" + data[0]._id, setChefOfTheWeekRestaurants);
   };
 
@@ -131,7 +134,10 @@ const Homepage = () => {
       <HomeSection title="CHEF OF THE WEEK :">
         <div className={styles["week-chef"]}>
           <div className={styles["chef-info"]}>
-            <div className={styles["chef-card"]}>
+            <div
+              className={styles["chef-card"]}
+              style={{ backgroundImage: `url(${chefOfTheWeek.image})` }}
+            >
               <div>
                 <h3>
                   {chefOfTheWeek.name?.fName + " " + chefOfTheWeek.name?.lName}
