@@ -34,42 +34,45 @@ const Homepage = () => {
       seeMoreText: "All Restaurants",
       cards: [],
     };
-    gallery1.cards = restaurants.map((item) => {
-      return {
-        image: item.image,
-        title: item.name,
-        content: item.chef.name.fName + " " + item.chef.name.lName,
-        link: "#",
-      };
-    });
+    if (restaurants.length > 0)
+      gallery1.cards = restaurants.map((item) => {
+        return {
+          image: item.image,
+          title: item.name,
+          content: item.chef.name.fName + " " + item.chef.name.lName,
+          link: "#",
+        };
+      });
     return gallery1;
   };
 
   const dishesToGallery2 = (dishes: dish[]): gallery => {
     const gallery2: gallery = { size: "lg", seeMoreLink: "#", cards: [] };
-    gallery2.cards = dishes.map((item) => {
-      return {
-        image: item.image,
-        title: item.name,
-        content: item.ingredients.join(", "),
-        link: "#",
-        price: item.price,
-        icon: item.tags,
-        aboveTitle: item.restaurant.name,
-      };
-    });
+    if (dishes.length > 0)
+      gallery2.cards = dishes.map((item) => {
+        return {
+          image: item.image,
+          title: item.name,
+          content: item.ingredients.join(", "),
+          link: "#",
+          price: item.price,
+          icon: item.tags,
+          aboveTitle: item.restaurant.name,
+        };
+      });
     return gallery2;
   };
 
   const restaurantsToGallery3 = (restaurants: restaurant[]): gallery => {
     const gallery3: gallery = { size: "sm", cards: [] };
-    gallery3.cards = restaurants.map((item) => {
-      return {
-        image: item.image,
-        title: item.name,
-        link: "#",
-      };
-    });
+    if (restaurants.length > 0)
+      gallery3.cards = restaurants.map((item) => {
+        return {
+          image: item.image,
+          title: item.name,
+          link: "#",
+        };
+      });
     return gallery3;
   };
 
@@ -149,7 +152,12 @@ const Homepage = () => {
             </div>
           </div>
           <div className={styles["chef-restaurants"]}>
-            <h3>{chefOfTheWeek.name?.fName}'s restaurants :</h3>
+            {
+              <h3>
+                {chefOfTheWeekRestaurants.length > 0 &&
+                  chefOfTheWeek.name?.fName + "s restaurants :"}
+              </h3>
+            }
             <Gallery
               gallery={restaurantsToGallery3(chefOfTheWeekRestaurants)}
             />
