@@ -45,6 +45,9 @@
     }
     .icon-wrapper {
       padding-bottom: 1rem;
+      display: flex;
+      column-gap: 1rem;
+      justify-content: center;
     }
     .icon {
       width: 2rem;

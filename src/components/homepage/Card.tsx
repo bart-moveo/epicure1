@@ -46,25 +46,22 @@ const Card = ({ card, size = "md" }: props) => {
       <div className={styles["content-wrapper"] + " " + backClass}>
         {card.title && <h4>{card.title}</h4>}
         {card.content && <p>{card.content}</p>}
-        {card.icon?.spicy && (
-          <div className={styles["icon-wrapper"]}>
+        <div className={styles["icon-wrapper"]}>
+          {card.icon?.spicy && (
             <img src={spicyIcon} className={styles.icon} alt="spicy" />
-          </div>
-        )}
-        {card.icon?.vegan && (
-          <div className={styles["icon-wrapper"]}>
+          )}
+          {card.icon?.vegan && (
             <img src={veganIcon} className={styles.icon} alt="vegan" />
-          </div>
-        )}
-        {card.icon?.vegetarian && (
-          <div className={styles["icon-wrapper"]}>
+          )}
+          {card.icon?.vegetarian && (
             <img
               src={vegetarianIcon}
               className={styles.icon}
               alt="vegetarian"
             />
-          </div>
-        )}
+          )}
+        </div>
+
         {card.price && (
           <div className={styles.price}>
             <hr />
